@@ -1,0 +1,69 @@
+---
+# tasks file for roles/server-init-role
+- name: Install basic packages
+  apt:
+    name: apt-transport-https ca-certificates curl gnupg lsb-release neovim
+    state: present
+    update_cache: yes
+
+- name: Add apt-fast repository
+  ansible.builtin.apt_repository:
+    repo: deb http://ppa.launchpad.net/apt-fast/stable/ubuntu $(lsb_release -cs) main 
+    state: present
+    filename: apt-fast
+
+- name: Add apt-fast-src repository
+  ansible.builtin.apt_repository:
+    repo: deb-src http://ppa.launchpad.net/apt-fast/stable/ubuntu $(lsb_release -cs) main
+    state: present
+    filename: apt-fast
+
+- name: Add docker repository
+  ansible.builtin.apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable
+    state: present
+    filename: docker
+
+- name: Install docker and apt-fast packages
+  apt:
+    name: docker-ce docker-ce-cli containerd.io docker-compose apt-fast
+    state: present
+    update_cache: yes
+
+- name: copy configs .bashrc
+  template:
+    src: .bashrc
+    dest: /root/.bashrc
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: copy configs .bash_prompt
+  template:
+    src: .bash_prompt
+    dest: /root/.bash_prompt
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: copy configs welcome.sh
+  template:
+    src: welcome.sh
+    dest: /root/welcome.sh
+    owner: root
+    group: root
+    mode: '0700'
+
+- name: copy configs .tmux.conf
+  template:
+    src: .tmux.conf
+    dest: /root/.tmux.conf
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: copy configs neovim
+  ansible.posix.synchronize: # is non stock modules - ansible-galaxy collection install ansible.posix
+    src: nvim
+    dest: /root/.config/nvim
+    recursive: yes

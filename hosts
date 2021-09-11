@@ -1,0 +1,5 @@
+[pwn.dev]
+pwn.dev ansible_ssh_host=10.66.66.2
+
+[pwndev.com]
+pwndev.com ansible_ssh_host=149.154.67.177
