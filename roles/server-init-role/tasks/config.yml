@@ -1,0 +1,37 @@
+---
+- name: copy configs .bashrc
+  template:
+    src: .bashrc
+    dest: /root/.bashrc
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: copy configs .bash_prompt
+  template:
+    src: .bash_prompt
+    dest: /root/.bash_prompt
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: copy configs welcome.sh
+  template:
+    src: welcome.sh
+    dest: /root/welcome.sh
+    owner: root
+    group: root
+    mode: '0700'
+
+- name: copy configs .tmux.conf
+  template:
+    src: .tmux.conf
+    dest: /root/.tmux.conf
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: copy configs neovim
+  copy:
+    src: nvim/
+    dest: /root/.config/nvim
