@@ -1,0 +1,83 @@
+stream {
+
+    upstream sshservermain {
+        server 10.66.66.2:2223;
+    }
+        server {
+        listen        2224;
+        proxy_pass    sshservermain;
+    }
+
+    upstream sshserverdev {
+        server 10.66.66.2:7001;
+    }
+        server {
+        listen        7001;
+        proxy_pass    sshserverdev;
+    }
+
+    upstream minecraftserver {
+        server 10.66.66.2:25565;
+    }
+        server {
+        listen        25565;
+        proxy_pass    minecraftserver;
+    }
+
+    upstream csgoserver {
+        server 10.66.66.12:27015;
+    }
+        server {
+        listen        27015;
+        proxy_pass    csgoserver;
+    }
+
+    upstream csgoserver2 {
+        server 10.66.66.12:27005;
+    }
+        server {
+        listen        27005;
+        proxy_pass    csgoserver2;
+    }
+
+    upstream csgoserver3 {
+        server 10.66.66.12:27020;
+    }
+        server {
+        listen        27020;
+        proxy_pass    csgoserver3;
+    }
+
+    upstream sshvm1 {
+        server 10.66.66.11:22;
+    }
+        server {
+        listen        3001;
+        proxy_pass    sshvm1;
+    }
+
+    upstream sshvm2 {
+        server 10.66.66.12:22;
+    }
+        server {
+        listen        3002;
+        proxy_pass    sshvm2;
+    }
+
+    upstream sshvm3 {
+        server 10.66.66.13:22;
+    }
+        server {
+        listen        3003;
+        proxy_pass    sshvm3;
+    }
+
+    upstream sshvm4 {
+        server 10.66.66.14:22;
+    }
+        server {
+        listen        3004;
+        proxy_pass    sshvm4;
+    }
+
+}

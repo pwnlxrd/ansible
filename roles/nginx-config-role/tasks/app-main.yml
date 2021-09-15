@@ -1,0 +1,7 @@
+---
+- name: Update nginx main app conf
+  template:
+    src: "main-app.conf.j2"
+    dest: "{{ main_nginx_conf_dir }}/app.conf"
+    mode: 0644
+  register: nginx-main-app

@@ -1,0 +1,8 @@
+---
+- name: Restart nginx-stream
+  docker_container:
+    name: nginx-externel
+    image: {{ nginx-image }}
+    state: started
+    restart: yes
+  when: nginx-stream-stream is succeeded

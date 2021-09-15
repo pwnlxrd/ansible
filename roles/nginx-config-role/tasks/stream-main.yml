@@ -1,0 +1,7 @@
+---
+- name: Update nginx main stream conf
+  template:
+    src: "main-stream.conf.j2"
+    dest: "{{ main_nginx_conf_dir }}/stream.conf"
+    mode: 0644
+  register: nginx-main-stream

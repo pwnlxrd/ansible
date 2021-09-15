@@ -1,0 +1,4 @@
+---
+conf_dir: "/data/containers_data/nginx/conf.d"
+stream_nginx_conf_dir: "/data/containers_data/nginx-vm/conf.d/"
+nginx-image: "nginx-custom:0.4"

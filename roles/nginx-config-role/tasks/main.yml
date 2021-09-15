@@ -1,0 +1,6 @@
+---
+- import_tasks: app-main.yml
+- import_tasks: stream-main.yml
+- import_tasks: stream-stream.yml
+- import_tasks: restart-main.yml
+- import_tasks: restart-stream.yml
