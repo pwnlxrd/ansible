@@ -1,0 +1,14 @@
+---
+- name: Update nginx-main conf
+  template:
+    src: "main.conf.j2"
+    dest: "{{ main_nginx_conf_dir }}/main.conf"
+    mode: 0644
+  notify: Restart nginx-main
+
+- name: Update nginx-stream conf
+  template:
+    src: "stream.conf.j2"
+    dest: "{{ stream_nginx_conf_dir }}/stream.conf"
+    mode: 0644
+  notify: Restart nginx-stream

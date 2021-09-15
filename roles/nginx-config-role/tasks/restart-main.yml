@@ -1,8 +1,0 @@
----
-- name: Restart nginx-main
-  docker_container:
-    name: nginx-main
-    image: {{ nginx-image }}
-    state: started
-    restart: yes
-  when: nginx-main-app is succeeded and nginx-main-stream is succeeded

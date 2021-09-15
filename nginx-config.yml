@@ -2,4 +2,4 @@
 - hosts: pwndev.com
   become: true
   roles:
-    - nginx-config-role
+    - nginx-config
