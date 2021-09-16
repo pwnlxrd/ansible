@@ -1,7 +1,0 @@
----
-- name: Update nginx stream conf
-  template:
-    src: "stream-stream.conf.j2"
-    dest: "{{ stream_nginx_conf_dir }}/stream.conf"
-    mode: 0644
-  register: nginx-stream-stream

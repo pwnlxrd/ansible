@@ -1,0 +1,12 @@
+---
+- name: Restart nginx-main
+  docker_container:
+    name: nginx-main
+    state: started
+    restart: yes
+
+- name: Restart nginx-stream
+  docker_container:
+    name: nginx-externel # externAl
+    state: started
+    restart: yes
