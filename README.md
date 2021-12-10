@@ -1,5 +1,7 @@
 # Ansible roles
 
+[![Build Status](https://drone.pwndev.com/api/badges/Pantheon/ansible/status.svg)](https://drone.pwndev.com/Pantheon/ansible)
+
 Roles:
 
 - server-init-role

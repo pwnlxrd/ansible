@@ -14,3 +14,4 @@ steps:
 - name: mirroring to github
   commands:
   - git push --mirror git@github.com:pwnlxrd/ansible.git
+  - echo "mirroring done 👌"
