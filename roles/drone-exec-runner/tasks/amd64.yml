@@ -1,0 +1,12 @@
+---
+- name: Download and install drone runner
+  command: "cd /tmp/; curl -L https://github.com/drone-runners/drone-runner-exec/releases/latest/download/drone_runner_exec_linux_amd64.tar.gz | tar zx; install -t /usr/local/bin drone-runner-exec; mkdir /etc/drone-runner-exec; mkdir /var/log/drone-runner-exec"
+
+- name: Create drone config
+  template:
+    src: "config.j2"
+    dest: "/etc/drone-runner-exec/config"
+    mode: 0440
+
+- name: Download and install drone runner
+  command: "drone-runner-exec service install; drone-runner-exec service start"

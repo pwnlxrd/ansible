@@ -1,0 +1,2 @@
+---
+- import_tasks: amd64.yml

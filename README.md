@@ -7,3 +7,6 @@ Roles:
 
 - nginx-config
     > push nginx conf to server and restart nginx container
+
+- drone-exec-runner
+    > install drone ci/cd exec runner
