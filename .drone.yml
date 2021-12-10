@@ -13,5 +13,6 @@ workspace:
 steps:
 - name: mirroring to github
   commands:
+  - whoami
   - git push --mirror git@github.com:pwnlxrd/ansible.git
   - echo "mirroring done 👌"
