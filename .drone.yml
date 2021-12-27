@@ -10,12 +10,11 @@ platform:
 workspace:
   path: /data/share/projects/git/ansible
 
-environment:
-  git: "github.com"
-  project: "pwnlxrd/ansible"
-
 steps:
 - name: mirroring to github
+  environment:
+    git: "github.com"
+    project: "pwnlxrd/ansible"
   commands:
   - git push --mirror git@$${git}:$${project}.git
 
