@@ -30,7 +30,7 @@ steps:
   #     [CI/CD]Build {{build.number}} ~ project $${project} failed. ❗️❗️❗️
   #   {{/success}}
   settings:
-    token: ${TG-TOKEN}
+    token: "${TG-TOKEN}"
     to: -456374469
      message: >
        {{#success build.status}}
