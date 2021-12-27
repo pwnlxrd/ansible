@@ -21,20 +21,20 @@ steps:
 - name: send telegram notification
   image: appleboy/drone-telegram
   secrets: [ tg-token ]
-  token: ${TG_TOKEN}
-  to: -456374469
-  message: >
-    {{#success build.status}}
-      [CI/CD]Build {{build.number}} ~ project $${project} succeeded. 🚀
-    {{else}}
-      [CI/CD]Build {{build.number}} ~ project $${project} failed. ❗️❗️❗️
-    {{/success}}
-  # settings:
-  #   token: $${TOKEN}
-  #   to: -456374469
-  #    message: >
-  #      {{#success build.status}}
-  #        [CI/CD]Build {{build.number}} ~ project $${project} succeeded. 🚀
-  #      {{else}}
-  #        [CI/CD]Build {{build.number}} ~ project $${project} failed. ❗️❗️❗️
-  #      {{/success}}
+  # token: ${TG_TOKEN}
+  # to: -456374469
+  # message: >
+  #   {{#success build.status}}
+  #     [CI/CD]Build {{build.number}} ~ project $${project} succeeded. 🚀
+  #   {{else}}
+  #     [CI/CD]Build {{build.number}} ~ project $${project} failed. ❗️❗️❗️
+  #   {{/success}}
+  settings:
+    token: ${TG-TOKEN}
+    to: -456374469
+     message: >
+       {{#success build.status}}
+         [CI/CD]Build {{build.number}} ~ project $${project} succeeded. 🚀
+       {{else}}
+         [CI/CD]Build {{build.number}} ~ project $${project} failed. ❗️❗️❗️
+       {{/success}}
