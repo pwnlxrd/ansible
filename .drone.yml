@@ -12,7 +12,22 @@ workspace:
 
 steps:
 - name: mirroring to github
+  environment:
+    git: "github.com"
+    project: "pwnlxrd/ansible"
+    TOKEN:
+      from_secret: tg-token
   commands:
-  - whoami
-  - git push --mirror git@github.com:pwnlxrd/ansible.git
-  - echo "mirroring done 👌"
+  - git push --mirror git@$${git}:$${project}.git
+
+- name: send telegram notification
+  image: appleboy/drone-telegram
+  settings:
+    token: $${TOKEN}
+    to: -456374469
+     message: >
+       {{#success build.status}}
+         [CI/CD]Build {{build.number}} ~ project $${project} succeeded. 🚀
+       {{else}}
+         [CI/CD]Build {{build.number}} ~ project $${project} failed. ❗️❗️❗️
+       {{/success}}
