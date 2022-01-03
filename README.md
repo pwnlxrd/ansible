@@ -12,3 +12,6 @@ Roles:
 
 - drone-exec-runner
     > install drone ci/cd exec runner
+
+- os-update
+    > update os packages and reboot
