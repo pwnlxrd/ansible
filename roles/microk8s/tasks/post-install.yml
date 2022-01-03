@@ -1,0 +1,53 @@
+---
+- name: Check is ufw installed
+  shell: command -v ufw >/dev/null 2>&1
+  register: is_ufw_exist
+  ignore_errors: yes
+
+- name: Disabling ufw
+  command: ufw disable
+  when: is_ufw_exist.rc == 0
+
+- name: Set ip forwarding
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: yes
+
+- name: Disable Swap
+  command: swapoff -a
+
+- name: Set File Descriptor Limits for Microk8s
+  lineinfile:
+    dest: /var/snap/microk8s/current/args/containerd-env
+    line: 'ulimit -n 65536 || true'
+    state: present
+
+- name: Set Locked Memory Limits for Microk8s
+  lineinfile:
+    dest: /var/snap/microk8s/current/args/containerd-env
+    line: 'ulimit -l 16384 || true'
+    state: present
+
+- name: Stop Microk8s
+  shell:  microk8s.stop
+  args:
+    executable: /bin/bash
+  retries: 3
+  delay: 10
+  register: result
+  until: result.rc == 0
+
+- name: Start Microk8s
+  shell: microk8s.start
+  args:
+    executable: /bin/bash
+  retries: 3
+  delay: 10
+  register: result
+  until: result.rc == 0
+
+- name: Alias kubectl
+  shell: snap alias microk8s.kubectl kubectl
+  args:
+    executable: /bin/bash

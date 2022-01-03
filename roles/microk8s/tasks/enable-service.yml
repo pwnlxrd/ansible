@@ -1,0 +1,21 @@
+---
+- name: Enable K8s dns
+  shell: microk8s.enable dns
+  args:
+    executable: /bin/bash
+
+- name: Enable K8s ingress
+  shell: microk8s.enable ingress
+  args:
+    executable: /bin/bash
+
+- name: Enable K8s storage
+  shell: microk8s.enable storage
+  args:
+    executable: /bin/bash
+
+- name: Enable K8s Dashboard
+  shell: microk8s.enable dashboard
+  args:
+    executable: /bin/bash
+  when: k8s_dashboard|default(False)|bool == True

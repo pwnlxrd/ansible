@@ -1,0 +1,10 @@
+---
+- name: snapd enable
+  service:
+    name: snapd
+    enabled: yes
+
+- name: snapd start
+  service:
+    name: snapd
+    state: started

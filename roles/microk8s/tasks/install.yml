@@ -1,0 +1,15 @@
+---
+- name: Install base dependencies
+  apt: 
+    name: snapd
+    state: present
+  notify:
+    - snapd enable
+    - snapd start
+
+- name: Install microk8s
+  become: yes
+  snap:
+    name: microk8s
+    classic: yes
+    # channel: "{{ version }}"
