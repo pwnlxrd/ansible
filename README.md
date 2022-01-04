@@ -15,3 +15,6 @@ Roles:
 
 - os-update
     > update os packages and reboot
+
+- microk8s
+    > install snapd,microk8s / post install k8s service - dns, ingress, dashboard, storage
