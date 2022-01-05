@@ -1,7 +1,9 @@
 # Ansible roles
-
+  
+[![Made with](https://shields.pwndev.com/badge/made%20with-ansible-brightgreen)](https://drone.pwndev.com/Pantheon/ansible)
+  
 [![Build Status](https://drone.pwndev.com/api/badges/Pantheon/ansible/status.svg)](https://drone.pwndev.com/Pantheon/ansible)
-
+  
 Roles:
 
 - server-init-role
