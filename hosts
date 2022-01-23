@@ -1,8 +1,8 @@
 [dev]
-dev-server ansible_ssh_host=dev.pwn.dev
+dev ansible_ssh_host=dev.pwn.dev
 
 [prod]
-prod-server ansible_ssh_host=pwn.dev ansible_port=2223
+prod ansible_ssh_host=prod.pwn.dev ansible_port=2223
 
 [bastion]
 bastion ansible_ssh_host=bastion.pwn.dev

@@ -14,6 +14,21 @@
   args:
     executable: /bin/bash
 
+- name: Enable K8s registry
+  shell: microk8s.enable registry
+  args:
+    executable: /bin/bash
+
+- name: Enable K8s metrics-server
+  shell: microk8s.enable metrics-server
+  args:
+    executable: /bin/bash
+
+- name: Enable K8s rbac
+  shell: microk8s.enable rbac
+  args:
+    executable: /bin/bash
+
 - name: Enable K8s Dashboard
   shell: microk8s.enable dashboard
   args:
