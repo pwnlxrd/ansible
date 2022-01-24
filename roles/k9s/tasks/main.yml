@@ -8,7 +8,7 @@
 
 - name: Copy bin to bin
   copy:
-    romete_src: /tmp/k9s
+    remote_src: /tmp/k9s
     dest: /bin/k9s
     owner: root
     group: root
