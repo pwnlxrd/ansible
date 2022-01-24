@@ -8,8 +8,9 @@
 
 - name: Copy bin to bin
   copy:
-    remote_src: /tmp/k9s
+    src: /tmp/k9s
     dest: /bin/k9s
+    remote_src: true
     owner: root
     group: root
     mode: '0744'
