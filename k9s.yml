@@ -1,0 +1,7 @@
+---
+- hosts: dev
+  become: true
+  vars:
+    version: "0.25.18"
+  roles:
+    - k9s
