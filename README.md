@@ -6,10 +6,10 @@
   
 Roles:
 
-- server-init-role
+- server-init-role  
     > Install base package, add repos, configs
 
-- nginx-config
+- nginx-config  
     > push nginx conf to server and restart nginx container
 
 - drone-exec-runner
@@ -19,4 +19,7 @@ Roles:
     > update os packages and reboot
 
 - microk8s
-    > install snapd,microk8s / post install k8s service - dns, ingress, dashboard, storage
+    > install snapd,microk8s / post install k8s service - dns, ingress, dashboard, storage  
+
+- k9s  
+    > cli for kubernetes  
